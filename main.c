@@ -66,17 +66,17 @@ void lv_example_label_1(void)
     lv_obj_t * label1 = lv_label_create(lv_screen_active());
     lv_label_set_long_mode(label1, LV_LABEL_LONG_MODE_WRAP);     /*Break the long lines*/
     lv_label_set_recolor(label1, true);                      /*Enable re-coloring by commands in the text*/
-    lv_label_set_text(label1, "#0000ff Re-color# #ff00ff words# #ff0000 of a# label, align the lines to the center ");
-    lv_obj_set_width(label1, 150);  /*Set smaller width to make the lines wrap*/
+    lv_label_set_text(label1, "Temperature statistics");
+    lv_obj_set_width(label1, 300);  /*Set smaller width to make the lines wrap*/
     lv_obj_set_style_text_align(label1, LV_TEXT_ALIGN_CENTER, 0);
-    lv_obj_align(label1, LV_ALIGN_CENTER, 0, -40);
+    lv_obj_align(label1, LV_ALIGN_CENTER, 0, -100);
     lv_obj_add_style(label1, &style_btn, 0);
     
-    lv_obj_t * label2 = lv_label_create(lv_screen_active());
-    lv_label_set_long_mode(label2, LV_LABEL_LONG_MODE_SCROLL_CIRCULAR);     /*Circular scroll*/
-    lv_obj_set_width(label2, 150);
-    lv_label_set_text(label2, "It is a circularly scrolling text. ");
-    lv_obj_align(label2, LV_ALIGN_CENTER, 0, 80);
+    //lv_obj_t * label2 = lv_label_create(lv_screen_active());
+    //lv_label_set_long_mode(label2, LV_LABEL_LONG_MODE_SCROLL_CIRCULAR);     /*Circular scroll*/
+    //lv_obj_set_width(label2, 150);
+    //lv_label_set_text(label2, "It is a circularly scrolling text. ");
+    //lv_obj_align(label2, LV_ALIGN_CENTER, 0, 80);
 }
 
 int32_t my_lcd_send_cmd(lv_display_t *disp, const uint8_t *cmd, size_t cmd_size, const uint8_t *param, size_t param_size)
@@ -166,7 +166,7 @@ void lv_example_chart_1(void)
     /*Create a chart*/
     lv_obj_t * chart;
     chart = lv_chart_create(lv_screen_active());
-    lv_obj_set_size(chart, 300, 150);
+    lv_obj_set_size(chart, 280, 150);
     lv_obj_center(chart);
     lv_chart_set_type(chart, LV_CHART_TYPE_LINE);   /*Show lines and points too*/
     lv_chart_set_point_count(chart, 20);
@@ -212,19 +212,19 @@ int main()
 
     lv_display_t *disp = lv_ili9341_create(DISPLAY_WIDTH, DISPLAY_HEIGHT, LV_LCD_FLAG_NONE, my_lcd_send_cmd, my_lcd_send_color);
 
-    lv_display_set_rotation(disp, LV_DISPLAY_ROTATION_90);
+    //lv_display_set_rotation(disp, LV_DISPLAY_ROTATION_270);
 
     lv_display_set_flush_cb(disp, my_disp_flush);
     lv_display_set_buffers(disp, displayBuffer, 0, DISPLAY_WIDTH*DISPLAY_HEIGHT*DISPLAY_DEPTH, LV_DISPLAY_RENDER_MODE_PARTIAL);
 
-    //lv_obj_t * icon = lv_img_create(lv_scr_act());
-    //lv_img_set_src(icon, &x281);
+    lv_obj_t * icon = lv_img_create(lv_scr_act());
+    lv_img_set_src(icon, &x281);
 
-    //lv_draw_spinner();
+    lv_draw_spinner();
 
     //lv_example_label_1();
 
-    lv_example_chart_1();
+    //lv_example_chart_1();
 
     while(1)
     {
