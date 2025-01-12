@@ -17,7 +17,7 @@ include(${CMAKE_CURRENT_LIST_DIR}/lvgl/env_support/cmake/custom.cmake)
 # rest of your project
 
 add_executable(hello_world
-    hello_world.c
+    main.c
     281.c
 )
 
