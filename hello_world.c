@@ -166,10 +166,8 @@ int main()
     lv_display_set_flush_cb(disp, my_disp_flush);
     lv_display_set_buffers(disp, displayBuffer, 0, DISPLAY_WIDTH*DISPLAY_HEIGHT*DISPLAY_DEPTH, LV_DISPLAY_RENDER_MODE_PARTIAL);
 
-    //lv_obj_t * icon = lv_img_create(lv_scr_act());
-
-    /*From variable*/
-    //lv_img_set_src(icon, &x281);
+    lv_obj_t * icon = lv_img_create(lv_scr_act());
+    lv_img_set_src(icon, &x281);
 
     lv_draw_spinner();
 
