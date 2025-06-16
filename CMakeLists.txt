@@ -12,16 +12,7 @@ project(my_project)
 # initialize the Raspberry Pi Pico SDK
 pico_sdk_init()
 
-#set(LV_USE_ILI9341 1)
-set(LV_FONT_MONTSERRAT_24 1)
-set(LV_USE_ILI9341 1)
-
-#set(LVGL_ROOT_DIR ${CMAKE_CURRENT_LIST_DIR}/lvgl/)
-#include(${CMAKE_CURRENT_LIST_DIR}/lvgl/env_support/cmake/custom.cmake)
-
 add_subdirectory(lvgl)
-
-
 
 # rest of your project
 
