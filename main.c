@@ -34,6 +34,8 @@ uint16_t displayBuffer[DISPLAY_WIDTH][DISPLAY_HEIGHT];
 
 LV_IMG_DECLARE(x281) 
 
+void _writeBlock(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1, uint8_t *data, size_t dataLen);
+
 void my_disp_flush(lv_display_t *disp, const lv_area_t *area, uint8_t * px_map)
 {
     lv_draw_sw_rgb565_swap(displayBuffer, (DISPLAY_WIDTH * DISPLAY_HEIGHT));
@@ -61,7 +63,7 @@ void lv_example_label_1(void)
 {
     static lv_style_t style_btn;
     lv_style_init(&style_btn);
-    lv_style_set_text_font(&style_btn, &lv_font_montserrat_24); 
+    lv_style_set_text_font(&style_btn, &lv_font_montserrat_28); 
 
     lv_obj_t * label1 = lv_label_create(lv_screen_active());
     lv_label_set_long_mode(label1, LV_LABEL_LONG_MODE_WRAP);     /*Break the long lines*/
@@ -209,6 +211,10 @@ int main()
 
     lv_init();
     lv_tick_set_cb(my_tick);
+
+
+//    lv_display_t * lv_ili9341_create(uint32_t hor_res, uint32_t ver_res, lv_lcd_flag_t flags,
+//                                 lv_ili9341_send_cmd_cb_t send_cmd_cb, lv_ili9341_send_color_cb_t send_color_cb);
 
     lv_display_t *disp = lv_ili9341_create(DISPLAY_WIDTH, DISPLAY_HEIGHT, LV_LCD_FLAG_NONE, my_lcd_send_cmd, my_lcd_send_color);
 
